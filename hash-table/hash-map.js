@@ -14,6 +14,7 @@ MyHashMap.prototype.put = function (key, value) {
 
   if (this.table[hash] && this.table[hash][0] === key) {
     this.table[hash][1] = value;
+    return;
   }
 
   this.table[hash] = [key, value];
