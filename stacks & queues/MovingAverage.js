@@ -24,7 +24,7 @@ function MovingAverage(size) {
  * @return {number}
  */
 MovingAverage.prototype.next = function (val) {
-  if (this.queue.length >= this.size) {
+  if (this.queue.length === this.size) {
     this.queue.shift();
     this.queue.push(val);
   } else {
