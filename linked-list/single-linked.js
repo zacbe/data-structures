@@ -59,7 +59,11 @@ MyLinkedList.prototype.addAtHead = function (val) {
  * @return {void}
  */
 MyLinkedList.prototype.addAtTail = function (val) {
-  if (!this.head) return -1;
+  if (!this.head) {
+    this.head = new Node(val);
+    this.size++;
+    return;
+  }
 
   let curr = this.head;
   while (curr.next) {
@@ -77,13 +81,13 @@ MyLinkedList.prototype.addAtTail = function (val) {
  * @return {void}
  */
 MyLinkedList.prototype.addAtIndex = function (index, val) {
-  if (index + 1 === this.size) {
-    this.addAtTail(val);
+  if (index === 0) {
+    this.addAtHead(val);
     return;
   }
 
-  if (index === 0) {
-    this.addAtHead(val);
+  if (index === this.size) {
+    this.addAtTail(val);
     return;
   }
 
