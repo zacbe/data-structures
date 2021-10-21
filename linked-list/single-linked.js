@@ -1,16 +1,3 @@
-// class Node {
-//   constructor(value) {
-//     this.value = value;
-//     this.next = null;
-//   }
-// }
-
-// class LinkedList {
-//   constructor(value) {
-//     this.value = value;
-//     this.next = null;
-//   }
-// }
 
 function Node(value, next) {
   this.value = value;
