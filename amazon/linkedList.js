@@ -8,7 +8,10 @@
 
 // The maximum number of pages read is 7 (7 > 3)
 
-const { ListNode, Node } = require("../linked-list/linked-list-from-array");
+const {
+  ListNode,
+  Node,
+} = require("../linked-list/single-link/linked-list-from-array");
 
 /**
  *
@@ -18,47 +21,62 @@ const { ListNode, Node } = require("../linked-list/linked-list-from-array");
 function maximumPages(head) {
   if (!head) return -1;
 
-  let maxCount = 0;
-  while (head) {
-    // get head value and remove head
-    const headVal = head.val;
+  // find middle point
+  let middlePointer = findMiddleNode(head);
+
+  // reverse second half of the linked list
+  let reversePointer = reverseList(middlePointer);
+
+  let maxCount = Number.MIN_VALUE; //0;
+  while (head && reversePointer) {
+    const localSum = reversePointer.val + head.val;
+    maxCount = Math.max(maxCount, localSum);
+
+    reversePointer = reversePointer.next;
     head = head.next;
-
-    // get tail value and remove tail
-    const tailVal = removeTail(head);
-
-    // update maxCount
-    const localSum = headVal + tailVal;
-    if (maxCount < localSum) {
-      maxCount = localSum;
-    }
   }
 
   return maxCount;
 }
 
 /**
- * @function removeTail
- * @param {Node} head
- * @returns {number}
+ * Finds the middle node in a linked list
+ *
+ * @param {ListNode} head
+ * @returns {ListNode} - Pointer to the middle node
  */
-function removeTail(head) {
-  // Head is a single node
-  if (!head.next) {
-    const val = head.val;
-    head = null;
-    return val;
+function findMiddleNode(head) {
+  let slow = head;
+  let fast = head.next;
+
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
   }
 
-  let pointer = head;
-  while (pointer.next.next) {
-    pointer = pointer.next;
-  }
-  // store tail value and remove
-  const tail = pointer.next.val;
-  pointer.next = null;
+  return slow;
+}
 
-  return tail;
+function reverseList(head) {
+  let curr = head;
+  let next = null;
+  let prev = null;
+
+  while (curr) {
+    // 1. store a reference to the next node
+    next = curr.next;
+
+    // 2. update current node next reference to 'prev' pointer
+    curr.next = prev;
+
+    // 3. set 'prev' pointer to the current node
+    prev = curr;
+
+    // 4. set 'curr' pointer to the next node
+    curr = next;
+  }
+
+  return prev;
 }
 
 // const array = [1, 4, 3, 2];
@@ -67,5 +85,5 @@ const list = new ListNode();
 list.createFromArray(array);
 
 const res = maximumPages(list.head);
-// const res = removeTail(list.head);
+// const res = findMiddleNode(list.head);
 console.log(res);
