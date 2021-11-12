@@ -2,9 +2,16 @@
 
 ## Data Structures
 
+- Map/Set
+- Linked List
+  - Single
+  - Double
 - Queues
 - Stacks
 - Trees
+- Heaps
+- Graph
+- Tries
 
 ## Algorithms
 
@@ -12,7 +19,7 @@
 - Tree traversing algorithms DFS, BFS and variants
 - Searching algorithms
 
+# Resources
 
-# Resources 
 - https://techdevguide.withgoogle.com/paths/data-structures-and-algorithms
 - https://leetcode.com/explore/learn/

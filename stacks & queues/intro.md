@@ -10,7 +10,7 @@ Different from the queue, the stack is a LIFO data structure. Typically, the ins
 
 ### LIFO (last in first out)
 
-![fifo](/img/lifo.png)
+![lifo](/img/lifo.png)
 
 ```javascript
 // Queues can be easily implemented with push and pop
