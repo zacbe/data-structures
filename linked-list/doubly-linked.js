@@ -1,18 +1,20 @@
-function Node(value, next) {
-  this.value = value;
+function Node(val, next) {
+  this.val = val;
   this.next = next || null;
+  this.prev = prev || null;
 }
 
 /**
  * Initialize your data structure here.
  */
-function MyLinkedList() {
+var MyLinkedList = function () {
   this.head = null;
   this.size = 0;
-}
+};
 
 /**
- * Get the value of the index-th node in the linked list. If the index is invalid, return -1.
+ * Get the value of the index-th node in the linked list.
+ * If the index is invalid, return -1.
  * @param {number} index
  * @return {number}
  */
@@ -26,11 +28,12 @@ MyLinkedList.prototype.get = function (index) {
     curr = curr.next;
   }
 
-  return curr.value;
+  return curr.val;
 };
 
 /**
- * Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list.
+ * Add a node of value val before the first element of the linked list.
+ * After the insertion, the new node will be the first node of the linked list.
  * @param {number} val
  * @return {void}
  */
@@ -61,7 +64,10 @@ MyLinkedList.prototype.addAtTail = function (val) {
 };
 
 /**
- * Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted.
+ * Add a node of value val before the index-th node in the linked list.
+ * If index equals to the length of linked list, the node will be appended
+ * to the end of linked list. If index is greater than the length,
+ * the node will not be inserted.
  * @param {number} index
  * @param {number} val
  * @return {void}
@@ -79,6 +85,7 @@ MyLinkedList.prototype.addAtIndex = function (index, val) {
 
   let curr = this.head;
   let prev = curr;
+
   for (let i = 0; i < index; i++) {
     if (!curr.next) return -1;
 
@@ -116,16 +123,6 @@ MyLinkedList.prototype.deleteAtIndex = function (index) {
   this.size--;
 };
 
-const list = new MyLinkedList();
-list.addAtHead(3);
-list.addAtHead(2);
-list.addAtHead(1);
-list.addAtTail(4);
-list.addAtIndex(3, 5);
-list.deleteAtIndex(5);
-
-console.log(JSON.stringify(list, null, 2));
-
 /**
  * Your MyLinkedList object will be instantiated and called as such:
  * var obj = new MyLinkedList()
@@ -135,3 +132,11 @@ console.log(JSON.stringify(list, null, 2));
  * obj.addAtIndex(index,val)
  * obj.deleteAtIndex(index)
  */
+
+const list = new MyLinkedList();
+list.addAtHead(1);
+list.addAtTail(3);
+list.addAtIndex(1, 2);
+list.get(1);
+list.deleteAtIndex(1);
+list.get(1);
