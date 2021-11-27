@@ -2,16 +2,16 @@ const { Node, TreeBinary } = require("./index");
 
 function recursive_dfs(root, pick) {
   const traversals = {
-    "pre-order": recursive_preOrderTrav,
-    "in-order": recursive_inOrderTrav,
-    "post-order": recursive_postOrderTrav,
+    "pre-order": preOrderTrav,
+    "in-order": inOrderTrav,
+    "post-order": postOrderTrav,
   };
 
   const fn = traversals[pick];
   fn(root);
 }
 
-function recursive_preOrderTrav(root) {
+function preOrderTrav(root) {
   if (!root) return;
 
   console.log(root.data);
@@ -19,7 +19,7 @@ function recursive_preOrderTrav(root) {
   preOrderTrav(root.right);
 }
 
-function recursive_inOrderTrav(root) {
+function inOrderTrav(root) {
   if (!root) return;
 
   preOrderTrav(root.left);
@@ -27,7 +27,7 @@ function recursive_inOrderTrav(root) {
   preOrderTrav(root.right);
 }
 
-function recursive_postOrderTrav(root) {
+function postOrderTrav(root) {
   if (!root) return;
 
   preOrderTrav(root.left);
@@ -46,24 +46,13 @@ function iterative_dfs(root, pick) {
   fn(root);
 }
 
-function iterative_preOrderTrav(root) {}
-function iterative_inOrderTrav(root) {
-  if (!root) return [];
-
-  const stack = [root];
-  const results = [];
-  while (stack.length > 0) {
-    const curr = stack.pop();
-    results.push(curr.data);
-
-    if (curr.right) stack.push(curr.right);
-    if (curr.left) stack.push(curr.left);
-  }
-
-  return results;
-}
-
-function iterative_postOrderTrav(root) {
+/**
+ * node - left - right
+ *
+ * @param {Node} root
+ * @returns
+ */
+function iterative_preOrderTrav(root) {
   if (!root) return null;
 
   // push first value to stack
@@ -83,25 +72,70 @@ function iterative_postOrderTrav(root) {
 }
 
 /**
- *       C
+ * left - node - right
+ *
+ * @param {Node} root
+ * @returns
+ */
+function iterative_inOrderTrav(root) {
+  if (!root) return [];
+
+  const stack = [];
+  let curr = root;
+
+  const results = [];
+  while (curr || stack.length > 0) {
+    while (curr) {
+      stack.push(curr);
+      curr = curr.left;
+    }
+
+    curr = stack.pop();
+    results.push(curr.data);
+    curr = curr.right;
+  }
+
+  return results;
+}
+
+/**
+ * left - right - node
+ *
+ * @param {Node} root
+ * @returns
+ */
+function iterative_postOrderTrav(root) {
+  if (!root) return [];
+
+  const stack = [];
+  let curr = root;
+
+  const results = [];
+  while (curr || stack.length > 0) {
+    while (curr) {
+      stack.push(curr);
+      curr = curr.right;
+    }
+
+    curr = stack.pop();
+    results.push(curr.data);
+    curr = curr.left;
+  }
+
+  return results;
+}
+
+/**
+ *       B
  *     /   \
- *    A     D
+ *    A     C
  */
 
-const array = ["C", "A", "D"];
+// const array = ["B", "A", "C"];
+const array = [5, 3, 6, 2, 4, null, null, 1, null, null];
 const tree = new TreeBinary();
 tree.fromArray(array);
 // console.log(tree.root);
 
-// const it_inOrder = iterative_inOrderTrav(tree.root);
-// console.log(JSON.stringify(it_inOrder, null, 2));
-
 const it_postOrder = iterative_postOrderTrav(tree.root);
 console.log(JSON.stringify(it_postOrder, null, 2));
-
-// const preOrder = recursive_dfs(tree.root, "pre-order"); // CAD
-// console.log(preOrder);
-// const inOrder = recursive_dfs(tree.root, "in-order"); // ACD
-// console.log(inOrder);
-// const postOrder = recursive_dfs(tree.root, "post-order"); // ADC
-// console.log(postOrder);
