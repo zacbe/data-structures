@@ -24,7 +24,7 @@ function isValidBST(root, low = null, high = null) {
 
   // console.log({ lowerLimit: low, node: root.data, higherLimit: high });
   // if current node is not between low and high limits
-  if ((high && root.data >= high) || (low && root.data <= low)) {
+  if ((high && root.data >= high) || (low && root.data < low)) {
     return false;
   } else {
     return (
