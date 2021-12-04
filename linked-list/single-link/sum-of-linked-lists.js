@@ -1,4 +1,4 @@
-const { ListNode, Node } = require("./linked-list-from-array");
+const { Node, LinkedList } = require("./index");
 
 function sumOfLinkedLists(linkedListOne, linkedListTwo) {
   // Write your code here.
@@ -11,8 +11,8 @@ function sumOfLinkedLists(linkedListOne, linkedListTwo) {
   let carry = 0;
 
   while (p1 || p2) {
-    let val1 = p1 ? p1.val : 0;
-    let val2 = p2 ? p2.val : 0;
+    let val1 = p1 ? p1.value : 0;
+    let val2 = p2 ? p2.value : 0;
     let sum = val1 + val2 + carry;
 
     let remainder = sum % 10;
@@ -31,8 +31,8 @@ function sumOfLinkedLists(linkedListOne, linkedListTwo) {
 const array1 = [2, 4, 7, 1];
 const array2 = [9, 4, 5];
 
-const list1 = new ListNode();
-const list2 = new ListNode();
+const list1 = new LinkedList();
+const list2 = new LinkedList();
 list1.createFromArray(array1);
 list2.createFromArray(array2);
 

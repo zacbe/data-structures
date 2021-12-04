@@ -1,4 +1,4 @@
-const { ListNode } = require("./linked-list-from-array");
+const { Node, LinkedList } = require("./index");
 /**
  * Given the head of a singly linked list, group all the nodes with
  * odd indices together followed by the nodes with even indices,
@@ -13,12 +13,13 @@ const { ListNode } = require("./linked-list-from-array");
  * and O(n) time complexity.
  */
 
-/*
- * @param {ListNode} head
- * @return {ListNode}
+/**
+ *
+ * @param {Node} head
+ * @returns {Node}
  */
 function oddEvenList(head) {
-  if (!head || !head.val) return null;
+  if (!head || !head.value) return null;
 
   // set pointers to first odd and first even
   let odd = head;
@@ -47,7 +48,7 @@ function oddEvenList(head) {
 
 const array = [1, 2, 3, 4, 5, 6, 8, 7];
 // const array = [];
-const list = new ListNode();
+const list = new LinkedList();
 list.createFromArray(array);
 
 const res = oddEvenList(list.head);

@@ -1,4 +1,4 @@
-const { ListNode } = require("./linked-list-from-array");
+const { Node, LinkedList } = require("./index");
 
 /**
  * we could reverse the second half of the linked list and then
@@ -27,7 +27,7 @@ const { ListNode } = require("./linked-list-from-array");
  * }
  */
 /**
- * @param {ListNode} head
+ * @param {Node} head
  * @return {boolean}
  */
 function isPalindrome(head) {
@@ -48,8 +48,8 @@ function isPalindrome(head) {
 
 /**
  * Receives the head of a linked list and reverse it
- * @param {ListNode} head
- * @returns
+ * @param {Node} head
+ * @returns {Node}
  */
 function reverseList(head) {
   let curr = head;
@@ -68,8 +68,8 @@ function reverseList(head) {
 
 /**
  * Finds middle node of a linked list
- * @param {ListNode} head
- * @returns {ListNode} - Pointer to the middle node
+ * @param {Node} head
+ * @returns {Node} - Pointer to the middle node
  */
 function findMiddle(head) {
   let slow = head;
@@ -85,7 +85,7 @@ function findMiddle(head) {
 
 // const array = [1, 2];
 const array = [1, 2, 5, 3, 5, 2, 1];
-const list = new ListNode();
+const list = new LinkedList();
 list.createFromArray(array);
 
 const res = isPalindrome(list.head);

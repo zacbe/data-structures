@@ -1,14 +1,8 @@
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
+const { Node, LinkedList } = require("./index");
 
 /**
- * @param {ListNode} head
- * @return {ListNode}
+ * @param {Node} head
+ * @return {Node}
  */
 function detectCycle(head) {
   if (!head) return null;
@@ -34,8 +28,8 @@ function detectCycle(head) {
 
 /**
  * @function getMeetingPoint
- * @param {ListNode} head
- * @return {ListNode}
+ * @param {Node} head
+ * @return {Node}
  */
 function getMeetingPoint(head) {
   let slowPointer = head;
@@ -50,3 +44,10 @@ function getMeetingPoint(head) {
 
   return fastPointer;
 }
+
+const array = [1, 2, 3, 4, 5];
+const list = new LinkedList();
+list.createFromArray(array);
+// add cycle
+
+detectCycle(list.head);

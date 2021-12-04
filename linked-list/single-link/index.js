@@ -1,12 +1,14 @@
+/**
+ *
+ * @param {Number} value
+ * @param {Node|null} next
+ */
 function Node(value, next) {
   this.value = value;
   this.next = next || null;
 }
 
-/**
- * Initialize your data structure here.
- */
-function MyLinkedList() {
+function LinkedList() {
   this.head = null;
   this.size = 0;
 }
@@ -16,7 +18,7 @@ function MyLinkedList() {
  * @param {number} index
  * @return {number}
  */
-MyLinkedList.prototype.get = function (index) {
+LinkedList.prototype.get = function (index) {
   if (!this.head) return -1;
 
   let curr = this.head;
@@ -34,7 +36,7 @@ MyLinkedList.prototype.get = function (index) {
  * @param {number} val
  * @return {void}
  */
-MyLinkedList.prototype.addAtHead = function (val) {
+LinkedList.prototype.addAtHead = function (val) {
   this.head = new Node(val, this.head);
   this.size++;
 };
@@ -44,7 +46,7 @@ MyLinkedList.prototype.addAtHead = function (val) {
  * @param {number} val
  * @return {void}
  */
-MyLinkedList.prototype.addAtTail = function (val) {
+LinkedList.prototype.addAtTail = function (val) {
   if (!this.head) {
     this.head = new Node(val);
     this.size++;
@@ -66,7 +68,7 @@ MyLinkedList.prototype.addAtTail = function (val) {
  * @param {number} val
  * @return {void}
  */
-MyLinkedList.prototype.addAtIndex = function (index, val) {
+LinkedList.prototype.addAtIndex = function (index, val) {
   if (index === 0) {
     this.addAtHead(val);
     return;
@@ -95,7 +97,7 @@ MyLinkedList.prototype.addAtIndex = function (index, val) {
  * @param {number} index
  * @return {void}
  */
-MyLinkedList.prototype.deleteAtIndex = function (index) {
+LinkedList.prototype.deleteAtIndex = function (index) {
   if (index === 0) {
     this.head = this.head.next;
     this.size--;
@@ -116,22 +118,35 @@ MyLinkedList.prototype.deleteAtIndex = function (index) {
   this.size--;
 };
 
-const list = new MyLinkedList();
-list.addAtHead(3);
-list.addAtHead(2);
-list.addAtHead(1);
-list.addAtTail(4);
-list.addAtIndex(3, 5);
-list.deleteAtIndex(5);
+/**
+ *
+ * @param {Number[]} array
+ * @returns {Node} Head of the linked list
+ */
+LinkedList.prototype.createFromArray = function (array) {
+  const { 0: head } = array;
+  this.head = new Node(head);
+  this.size = 1;
+  let curr = this.head;
 
-console.log(JSON.stringify(list, null, 2));
+  for (let i = 1; i < array.length; i++) {
+    curr.next = new Node(array[i]);
+    curr = curr.next;
+    this.size++;
+  }
+};
 
 /**
- * Your MyLinkedList object will be instantiated and called as such:
- * var obj = new MyLinkedList()
+ * Your LinkedList object will be instantiated and called as such:
+ * var obj = new LinkedList()
  * var param_1 = obj.get(index)
  * obj.addAtHead(val)
  * obj.addAtTail(val)
  * obj.addAtIndex(index,val)
  * obj.deleteAtIndex(index)
  */
+
+module.exports = {
+  LinkedList,
+  Node,
+};

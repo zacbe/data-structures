@@ -1,4 +1,4 @@
-const { ListNode } = require("./linked-list-from-array");
+const { Node, LinkedList } = require("./index");
 
 /**
  * Given the head of a linked list and an integer val,
@@ -8,20 +8,20 @@ const { ListNode } = require("./linked-list-from-array");
 
 /**
  *
- * @param {ListNode} head
- * @param {number} val
- * @return {ListNode}
+ * @param {Node} head
+ * @param {number} value
+ * @return {Node}
  */
-function removeElements(head, val) {
-  // skips the head if head.value === val
-  while (head && head.val === val) {
+function removeElements(head, value) {
+  // skips the head if head.value === value
+  while (head && head.value === value) {
     head = head.next;
   }
 
   let curr = head;
 
   while (curr && curr.next) {
-    if (curr.next.val === val) {
+    if (curr.next.value === value) {
       curr.next = curr.next.next;
     } else {
       curr = curr.next;
@@ -31,10 +31,10 @@ function removeElements(head, val) {
   return head;
 }
 
-// const array = [1, 2, 6, 3, 4, 5, 6];
-const array = [7, 7, 7, 7, 6];
-const list = new ListNode();
+const array = [1, 2, 6, 3, 4, 5, 6];
+// const array = [7, 7, 7, 7, 6];
+const list = new LinkedList();
 list.createFromArray(array);
 
-const res = removeElements([], 6);
+const res = removeElements(list.head, 6);
 console.log(JSON.stringify(res, null, 2));

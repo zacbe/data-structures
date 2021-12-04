@@ -1,23 +1,15 @@
-const { ListNode, Node } = require("./linked-list-from-array");
+const { Node, LinkedList } = require("./index");
 
 /**
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-
-/**
- * @param {ListNode} head
+ * @param {Node} head
  * @param {number} n
- * @return {ListNode}
+ * @return {Node}
  */
 function removeNthFromEnd(head, n) {
   if (!head || !head.next) return null;
 
   // add dummy node as extra before head
-  let dummy = new ListNode(0, head);
+  let dummy = new LinkedList(0, head);
   let first = dummy;
   let second = dummy;
 
@@ -41,9 +33,9 @@ function removeNthFromEnd(head, n) {
 // const array = [1];
 // const array = [1, 2];
 const array = [1, 2, 3, 4, 5];
-const n = 6; // node to remove from end
+const n = 2; // node to remove from end
 
-const list = new ListNode();
+const list = new LinkedList();
 list.createFromArray(array);
 
 const res = removeNthFromEnd(list.head, n);

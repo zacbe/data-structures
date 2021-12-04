@@ -1,15 +1,16 @@
-const { ListNode } = require("./linked-list-from-array");
+const { Node, LinkedList } = require("./index");
 
 /**
  * Definition for singly-linked list.
- * function ListNode(val, next) {
+ * function Node(val, next) {
  *     this.val = (val===undefined ? 0 : val)
  *     this.next = (next===undefined ? null : next)
  * }
  */
+
 /**
- * @param {ListNode} head
- * @return {ListNode}
+ * @param {Node} head
+ * @return {Node}
  */
 function reverseList(head) {
   if (!head) return head;
@@ -31,11 +32,10 @@ function reverseList(head) {
   return prev;
 }
 
-// const array = [1, 2, 3, 4, 5];
-const array = [];
-const list = new ListNode();
+const array = [1, 2, 3, 4, 5];
+const list = new LinkedList();
 list.createFromArray(array);
 
-// const res = reverseList(list.head);
+const res = reverseList(list.head);
 
-console.log(list.head);
+console.log(res);

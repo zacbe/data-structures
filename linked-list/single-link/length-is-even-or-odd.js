@@ -1,5 +1,12 @@
-const { ListNode } = require("./linked-list-from-array");
+const { Node, LinkedList } = require("./index");
 
+/**
+ * 0 - even
+ * 1 - odd
+ *
+ * @param {Node} head
+ * @returns {Number}
+ */
 function isLengthEvenOrOdd(head) {
   let count = 0;
   while (head.next) {
@@ -12,7 +19,7 @@ function isLengthEvenOrOdd(head) {
 
 // const array = [12, 52, 10, 47, 95, 0];
 const array = [9, 4, 3];
-const list = new ListNode();
+const list = new LinkedList();
 list.createFromArray(array);
 
 const res = isLengthEvenOrOdd(list.head);

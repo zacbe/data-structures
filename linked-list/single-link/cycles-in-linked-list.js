@@ -1,13 +1,7 @@
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
+const { Node, LinkedList } = require("./index");
 
 /**
- * @param {ListNode} head
+ * @param {Node} head
  * @return {boolean}
  */
 function hasCycle(head) {
@@ -33,3 +27,10 @@ function hasCycle(head) {
   // p1 = 3 p2 = 0
   // p1 = 2 p2 = 2 | found cycle
 }
+
+const array = [1, 2, 3, 4, 5];
+const list = new LinkedList();
+list.createFromArray(array);
+// add cycle
+
+hasCycle(list.head);

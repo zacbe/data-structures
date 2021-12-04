@@ -1,5 +1,11 @@
-const { ListNode } = require("./linked-list-from-array");
+const { Node, LinkedList } = require("./index");
 
+/**
+ *
+ * @param {Node} head
+ * @param {Number} k
+ * @returns {Node}
+ */
 function shiftLinkedList(head, k) {
   // Write your code here.
   let tail = head;
@@ -59,7 +65,7 @@ function shiftLinkedList(head, k) {
 // ^___________________________________v
 
 const array = [0, 1, 2, 3, 4, 5];
-const list = new ListNode();
+const list = new LinkedList();
 list.createFromArray(array);
 
 const k = -2; // k can be negative or positive

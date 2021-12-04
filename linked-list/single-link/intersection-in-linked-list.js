@@ -1,9 +1,9 @@
-const { ListNode } = require("./linked-list-from-array");
+const { Node, LinkedList } = require("./index");
 
 /**
- * @param {ListNode} headA
- * @param {ListNode} headB
- * @return {ListNode}
+ * @param {Node} headA
+ * @param {Node} headB
+ * @return {Node}
  */
 function getIntersectionNodeHashSet(headA, headB) {
   // 1. traverse first list and store visited nodes in Set
@@ -29,9 +29,9 @@ function getIntersectionNodeHashSet(headA, headB) {
 }
 
 /**
- * @param {ListNode} headA
- * @param {ListNode} headB
- * @return {ListNode}
+ * @param {Node} headA
+ * @param {Node} headB
+ * @return {Node}
  */
 var getIntersectionNodeTwoPointers = function (headA, headB) {
   let p1 = headA;
@@ -48,10 +48,10 @@ var getIntersectionNodeTwoPointers = function (headA, headB) {
 const arrA = [4, 1, 8, 4, 5];
 const arrB = [5, 6, 1, 8, 4, 5];
 
-const listA = new ListNode();
+const listA = new LinkedList();
 listA.createFromArray(arrA);
 
-const listB = new ListNode();
+const listB = new LinkedList();
 listB.createFromArray(arrB);
 
 // console.log(JSON.stringify(listA.head, null, 2));
