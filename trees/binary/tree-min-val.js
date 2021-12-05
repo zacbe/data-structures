@@ -1,4 +1,4 @@
-const { Node, TreeBinary } = require("./index");
+const { Node, BinaryTree } = require("./index");
 
 /**
  *
@@ -47,7 +47,7 @@ function recursive_treeMinVal(root) {
  */
 
 const array = [5, 11, 3, 4, 15, null, 12];
-const tree = new TreeBinary();
+const tree = new BinaryTree();
 tree.fromArray(array);
 
 const iterative = iterative_treeMinVal(tree.root);

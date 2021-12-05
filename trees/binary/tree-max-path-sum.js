@@ -1,4 +1,4 @@
-const { Node, TreeBinary } = require("./index");
+const { Node, BinaryTree } = require("./index");
 
 /**
  *
@@ -23,7 +23,7 @@ function maxPathSum(root) {
  *      4    2     1
  */
 const array = [5, 11, 3, 4, 2, null, 1];
-const tree = new TreeBinary();
+const tree = new BinaryTree();
 tree.fromArray(array);
 
 const res = maxPathSum(tree.root);

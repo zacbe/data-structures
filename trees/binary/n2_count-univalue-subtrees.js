@@ -1,4 +1,4 @@
-const { Node, TreeBinary } = require("./index");
+const { Node, BinaryTree } = require("./index");
 
 /**
  *
@@ -54,7 +54,7 @@ function is_uni(root) {
  */
 
 const array = [5, 1, 5, 5, 5, null, 5];
-const tree = new TreeBinary();
+const tree = new BinaryTree();
 tree.fromArray(array);
 
 const recursive = countUniVals(tree.root);

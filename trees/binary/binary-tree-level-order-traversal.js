@@ -1,4 +1,4 @@
-const { Node, TreeBinary } = require("./index");
+const { Node, BinaryTree } = require("./index");
 
 /**
  * @param {Node} root
@@ -46,7 +46,7 @@ function levelOrder(root) {
  */
 
 const array = [1, 2, 3, 4, 5, 6, 7];
-const tree = new TreeBinary();
+const tree = new BinaryTree();
 tree.fromArray(array);
 
 console.log(tree.root);

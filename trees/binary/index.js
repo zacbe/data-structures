@@ -4,7 +4,7 @@ function Node(data, left, right) {
   this.right = right || null;
 }
 
-function TreeBinary() {
+function BinaryTree() {
   this.root = null;
 }
 
@@ -19,7 +19,7 @@ function TreeBinary() {
  * @returns
  */
 
-TreeBinary.prototype.fromArray = function (array) {
+BinaryTree.prototype.fromArray = function (array) {
   this.root = new Node(array[0]);
   const queue = [this.root];
   let i = 0;
@@ -43,23 +43,35 @@ TreeBinary.prototype.fromArray = function (array) {
   return this.root;
 };
 
-TreeBinary.prototype.leftIdx = function (idx) {
+BinaryTree.prototype.leftIdx = function (idx) {
   return 2 * idx + 1;
 };
 
-TreeBinary.prototype.rightIdx = function (idx) {
+BinaryTree.prototype.rightIdx = function (idx) {
   return 2 * idx + 2;
 };
 
-TreeBinary.prototype.childrenIdx = function (idx) {
+BinaryTree.prototype.childrenIdx = function (idx) {
   return { leftIdx: this.leftIdx(idx), rightIdx: this.rightIdx(idx) };
 };
 
-TreeBinary.prototype.parentIdx = function (idx) {
+BinaryTree.prototype.parentIdx = function (idx) {
   return Math.floor((idx - 1) / 2);
 };
 
+BinaryTree.prototype.print = function (root) {
+  const queue = [root];
+
+  while (queue.length > 0) {
+    const curr = queue.shift();
+    console.log(curr.data);
+
+    if (curr.left) queue.push(curr.left);
+    if (curr.right) queue.push(curr.right);
+  }
+};
+
 module.exports = {
-  TreeBinary,
+  BinaryTree,
   Node,
 };

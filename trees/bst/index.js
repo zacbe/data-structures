@@ -1,7 +1,7 @@
-function Node(data) {
+function Node(data, left, right) {
   this.data = data;
-  this.left = null;
-  this.right = null;
+  this.left = left || null;
+  this.right = right || null;
 }
 
 function BST() {

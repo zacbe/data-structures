@@ -1,4 +1,4 @@
-const { Node, TreeBinary } = require("./index");
+const { Node, BinaryTree } = require("./index");
 
 /**
  *
@@ -73,7 +73,7 @@ function iterative_bfs(root, target) {
 }
 
 const array = ["a", "b", "c", "d", "e", null, "f"];
-const tree = new TreeBinary();
+const tree = new BinaryTree();
 tree.fromArray(array);
 
 // bfs_it

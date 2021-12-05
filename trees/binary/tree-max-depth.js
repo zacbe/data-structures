@@ -1,4 +1,4 @@
-const { Node, TreeBinary } = require("./index");
+const { Node, BinaryTree } = require("./index");
 /**
  * @param {Node} root
  * @return {number}
@@ -21,7 +21,7 @@ function maxDepth(root, lvl = 1) {
  */
 
 const array = [3, 9, 20, null, null, 15, 7];
-const tree = new TreeBinary();
+const tree = new BinaryTree();
 tree.fromArray(array);
 
 const res = maxDepth(tree.root);

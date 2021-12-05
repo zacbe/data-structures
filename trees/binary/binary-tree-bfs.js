@@ -1,5 +1,10 @@
-const { Node, TreeBinary } = require("./index");
+const { Node, BinaryTree } = require("./index");
 
+/**
+ *
+ * @param {Node} root
+ * @returns
+ */
 function iterative_bfs(root) {
   if (!root) return null;
 
@@ -27,7 +32,7 @@ function iterative_bfs(root) {
 //       values in a LIFO.
 
 const array = ["C", "A", "D"];
-const tree = new TreeBinary();
+const tree = new BinaryTree();
 tree.fromArray(array);
 // console.log(tree.root);
 

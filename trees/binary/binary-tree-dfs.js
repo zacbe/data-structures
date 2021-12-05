@@ -1,4 +1,4 @@
-const { Node, TreeBinary } = require("./index");
+const { Node, BinaryTree } = require("./index");
 
 function recursive_dfs(root, pick) {
   const traversals = {
@@ -133,7 +133,7 @@ function iterative_postOrderTrav(root) {
 
 // const array = ["B", "A", "C"];
 const array = [5, 3, 6, 2, 4, null, null, 1, null, null];
-const tree = new TreeBinary();
+const tree = new BinaryTree();
 tree.fromArray(array);
 // console.log(tree.root);
 

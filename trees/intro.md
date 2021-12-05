@@ -4,6 +4,16 @@ Tree is a non-linear data structure. A tree can be represented using various pri
 
 ![General Tree structure](/img/general-tree.png)
 
+## Terminology
+
+- `Root` is the topmost node of the tree
+- `Edge` is the link between two nodes
+- `Child` is a node that has a parent node
+- `Parent` is a node that has an edge to a child node
+- `Leaf` is a node that does not have a child node in the tree
+- `Height` is the length of the longest path to a leaf
+- `Depth` is the length of the path to its root
+
 ### Relations in a Tree:
 
 - `A` is the **root** of the tree
@@ -64,7 +74,42 @@ const array = [1, 2, 3, 4, null, null, 5];
 
 ```
 
-## BST
+## Definitions
+
+### Rooted binary tree
+
+A rooted binary tree has a root node and every node has at most two children.
+
+### Full binary tree
+
+A **full binary tree** is a tree in which every node has either `0 or 2 children`. Another way of defining a full binary tree is a recursive definition.
+
+A full binary tree is either:
+
+- A single vertex
+- A tree whose root node has two subtrees, both of which are full binary trees
+
+### Complete binary tree
+
+In a **complete binary tree** every level, except possibly the last, is completely filled, and all nodes in the last level are as far left as possible. It can have between `1 and 2^h` nodes at the last level `h`. A complete binary tree can be efficiently represented using an array
+
+### Perfect binary tree
+
+A **perfect binary tree** is a binary tree in which all interior nodes have two children and all leaves have the same depth or same level. A perfect tree is therefore always complete but a complete tree is not necessarily perfect.
+
+### Infinite complete binary tree
+
+In the **infinite complete binary tree**, every node has two children (and so the set of levels is countably infinite). The set of all nodes is countably infinite, but the set of all infinite paths from the root is uncountable, having the cardinality of the continuum. That's because these paths correspond by an order-preserving bijection to the points of the Cantor set, or (using the example of a `Stern–Brocot` tree) to the set of positive irrational numbers.
+
+### Balanced binary tree
+
+A **balanced binary tree** is a binary tree structure in which the left and right subtrees of every node `differ in height by no more than 1`. One may also consider binary trees where no leaf is much farther away from the root than any other leaf. (Different balancing schemes allow different definitions of "much farther".
+
+### Degenerate binary tree
+
+A **degenerate** (or pathological) tree is where each parent node has only one associated child node. This means that the tree will behave like a linked list data structure.
+
+# BST
 
 A `binary search tree` (BST), a special form of a binary tree, satisfies the binary search property:
 

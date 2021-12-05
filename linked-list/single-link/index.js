@@ -8,8 +8,8 @@ function Node(value, next) {
   this.next = next || null;
 }
 
-function LinkedList() {
-  this.head = null;
+function LinkedList(head) {
+  this.head = head || null;
   this.size = 0;
 }
 
@@ -134,6 +134,17 @@ LinkedList.prototype.createFromArray = function (array) {
     curr = curr.next;
     this.size++;
   }
+};
+
+LinkedList.prototype.print = function () {
+  let p = this.head;
+  let list = "";
+  while (p) {
+    list += p.value + " => ";
+    p = p.next;
+  }
+
+  console.log(list + "null");
 };
 
 /**

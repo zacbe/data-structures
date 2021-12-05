@@ -1,4 +1,4 @@
-const { TreeBinary } = require("./index");
+const { Node, BinaryTree } = require("./index");
 
 /**
  * @param {Node} root
@@ -22,7 +22,7 @@ function isMirror(root1, root2) {
 }
 
 const array = [1, 2, 2, 3, 4, 4, 3];
-const tree = new TreeBinary();
+const tree = new BinaryTree();
 tree.fromArray(array);
 const res = isSymmetric(tree.root);
 console.log(res);

@@ -1,4 +1,4 @@
-const { Node, TreeBinary } = require("./index");
+const { Node, BinaryTree } = require("./index");
 
 /**
  * @param {Node} root
@@ -27,7 +27,7 @@ function invertTree(root) {
  */
 
 const array = [5, 4, 8, 11, null, 13, 4, 7, 2, null, null, null, 1];
-const tree = new TreeBinary();
+const tree = new BinaryTree();
 tree.fromArray(array);
 
 const res = invertTree(tree.root);

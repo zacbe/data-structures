@@ -1,4 +1,4 @@
-const { Node, TreeBinary } = require("./index");
+const { Node, BinaryTree } = require("./index");
 
 /**
  *
@@ -44,7 +44,7 @@ function iterative_treeSum(root) {
  */
 
 const array = [3, 11, 4, 4, 2, null, 1];
-const tree = new TreeBinary();
+const tree = new BinaryTree();
 tree.fromArray(array);
 
 const recursive = recursive_treeSum(tree.root);
