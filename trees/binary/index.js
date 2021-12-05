@@ -29,7 +29,7 @@ class BinaryTree {
 
     while (queue.length > 0) {
       const curr = queue.shift();
-      let { leftIdx, rightIdx } = this.childrenIdx(i);
+      const { leftIdx, rightIdx } = this.childrenIdx(i);
       i++;
 
       if (leftIdx < array.length && rightIdx < array.length) {
@@ -40,10 +40,10 @@ class BinaryTree {
         let right = array[rightIdx];
         curr.right = right ? new Node(right) : null;
         if (curr.right) queue.push(curr.right);
+      } else {
+        return this.root;
       }
     }
-
-    return this.root;
   }
 
   leftIdx(idx) {
