@@ -1,14 +1,6 @@
 const { Node, LinkedList } = require("./index");
 
 /**
- * Definition for singly-linked list.
- * function Node(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
-
-/**
  * @param {Node} head
  * @return {Node}
  */
